@@ -45,7 +45,7 @@ The project covers creating a private NAT Network with DHCP disabled, assigning 
 
 VirtualBox and the Kali Linux VM were set up and used as the base for this lab.
 
-![Kali in VirtualBox](screenshots/01-virtualbox-kali.png)
+
 
 ### Step 2: Create a NAT Network
 
@@ -56,13 +56,13 @@ Created through **File → Tools → Network Manager → NAT Networks**.
 - **DHCP:** Disabled (addresses are assigned manually)
 - **IPv6:** Disabled
 
-![NAT Network Settings](screenshots/02-nat-network.png)
+
 
 ### Step 3: Connect Kali to the NAT Network
 
 In the VM settings, **Adapter 1** is set to *NAT Network* and the name `NatNetwork` is selected.
 
-![Adapter Settings](screenshots/03-adapter-settings.png)
+
 
 ### Step 4: Configure a Static IP Address
 
@@ -82,7 +82,7 @@ sudo nmcli connection add type ethernet ifname eth0 con-name "NatNetwork-static"
 sudo nmcli connection up "NatNetwork-static"
 ```
 
-![Static IP Configuration](screenshots/04-ip-config.png)
+
 
 ### Step 5: Verify Network Connectivity
 
@@ -97,7 +97,7 @@ ping -c 4 google.com
 - `ip route` shows `default via 10.0.0.1 dev eth0 proto static`
 - Both pings returned 4/4 replies with 0% packet loss, confirming Internet access and DNS resolution
 
-![Connectivity Tests](screenshots/05-ping-tests.png)
+
 
 ### Step 6: Troubleshoot the Lost Configuration
 
@@ -120,7 +120,6 @@ sudo nmcli connection up "NatNetwork-static"
 
 Created a VirtualBox snapshot named `Clean-kali-week1`, taken once the network and DNS tests were passing.
 
-![Snapshot](screenshots/06-snapshot.png)
 
 
 
